@@ -15,8 +15,6 @@ export class PostService {
   constructor(private http: HttpClient) { }
 
   getPosts(){
-    if (this.post.length > 0) return of(this.post)
-
       return this.http.get<Post[]>(this.baseUrl + 'post').pipe(
         map(post => {
           this.post = post
@@ -27,5 +25,13 @@ export class PostService {
 
   getPostByName(titleName: string){
       return this.http.get<Post>(this.baseUrl + 'post/posts/' + titleName)
+  }
+
+  CreatePost(post: Post){
+    return this.http.post<Post>(this.baseUrl + 'post', post)
+  }
+
+  deletePost(titleName:string){
+    return this.http.delete<Post>(this.baseUrl + 'post/posts/' + titleName)
   }
 }

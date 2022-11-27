@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Post } from 'src/app/models/post';
 import { PostService } from 'src/app/services/post.service';
 
@@ -11,7 +12,7 @@ import { PostService } from 'src/app/services/post.service';
 export class PostComponent implements OnInit {
   post: Post
 
-  constructor(private postService: PostService, private route:ActivatedRoute) { }
+  constructor(private postService: PostService, private route:ActivatedRoute, private router:Router, private toast:ToastrService) { }
 
   ngOnInit(): void {
     this.loadPost()
@@ -21,6 +22,13 @@ export class PostComponent implements OnInit {
     return this.postService.getPostByName(this.route.snapshot.paramMap.get('author')).subscribe(data => {
       this.post = data
     })
+  }
+
+  deletePost(){
+      return this.postService.deletePost(this.post.author).subscribe(data => {
+        this.toast.success("Post deletado")
+        this.router.navigateByUrl('')
+      })
   }
 
 }
