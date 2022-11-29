@@ -26,7 +26,7 @@ export class PostComponent implements OnInit {
 
   deletePost(){
       return this.postService.deletePost(this.post.author).subscribe(data => {
-        this.toast.success("Post deletado")
+        this.toast.error("Post deletado")
         this.router.navigateByUrl('')
       })
   }

@@ -1,4 +1,5 @@
-<app-header [pageImageCover]="'assets/img/home-bg.jpg'" [pageTitle]="'Nova Postagem'"> </app-header>
+<app-header [pageImageCover]="'assets/img/home-bg.jpg'" [pageTitle]="'Editar Postagem'"> </app-header>
+    <div *ngIf="post">   
         <main class="mb-4">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -6,28 +7,25 @@
                         <div class="my-5">
                             <form [formGroup]='postForm' (ngSubmit)="sendForm()" >
                                 <div class="form-floating">
-                                    <input class="form-control" formControlName="titulo" type="text" placeholder="Titulo"  />
+                                    <input class="form-control" formControlName="titulo" [(ngModel)]="post.titulo" type="text" placeholder="Titulo"  />
                                     <label for="titulo">Titulo</label>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" formControlName="subTitulo" type="text" placeholder="SubTitulo"  />
+                                    <input class="form-control" formControlName="subTitulo"  [(ngModel)]="post.subTitulo" type="text" placeholder="SubTitulo"  />
                                     <label for="subTitulo">SubTitulo</label>
                                 </div>
+                               
                                 <div class="form-floating">
-                                    <input class="form-control" formControlName="author" type="text" placeholder="Author"  />
-                                    <label for="author">Autor</label>
-                                </div>
-                                <div class="form-floating">
-                                    <input class="form-control" formControlName="categoria" type="text" placeholder="Categoria"  />
+                                    <input class="form-control" formControlName="categoria" [(ngModel)]="post.categoria" type="text" placeholder="Categoria"  />
                                     <label for="titulo">Categoria</label>
                                 </div>
                                 <div class="form-floating">
-                                    <textarea class="form-control" formControlName="conteudo" id="message" placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required"></textarea>
+                                    <textarea class="form-control" formControlName="conteudo" [(ngModel)]="post.conteudo" id="message" placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required"></textarea>
                                     <label for="message">Escreva seu post...</label>
                                 </div>
                                 <br />
                                 <div class="form-group text-center">
-                                    <button [disabled]='!postForm.valid' class="btn btn-success mr-2" type="submit">Publicar</button>
+                                    <button [disabled]='!postForm.valid' class="btn btn-success mr-2" type="submit">Salvar</button>
                                 </div>
                             </form>
                         </div>
@@ -35,5 +33,5 @@
                 </div>
             </div>
         </main>
-       
+    </div>      
        

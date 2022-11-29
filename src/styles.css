@@ -1,5 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~ngx-toastr/toastr.css';
+@import '~font-awesome/css/font-awesome.min.css';
+@import '~ngx-spinner/animations/timer.css';
+
+#toast-container > div { opacity:1; }
+
+
 
 :root {
   --bs-blue: #0d6efd;
@@ -5180,52 +5187,6 @@ textarea.form-control-lg {
   filter: invert(1) grayscale(100%) brightness(200%);
 }
 
-.toast {
-  width: 350px;
-  max-width: 100%;
-  font-size: 0.875rem;
-  pointer-events: auto;
-  background-color: rgba(255, 255, 255, 0.85);
-  background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-}
-.toast.showing {
-  opacity: 0;
-}
-.toast:not(.show) {
-  display: none;
-}
-
-.toast-container {
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  max-width: 100%;
-  pointer-events: none;
-}
-.toast-container > :not(:last-child) {
-  margin-bottom: 0.75rem;
-}
-
-.toast-header {
-  display: flex;
-  align-items: center;
-  padding: 0.5rem 0.75rem;
-  color: #6c757d;
-  background-color: rgba(255, 255, 255, 0.85);
-  background-clip: padding-box;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-.toast-header .btn-close {
-  margin-right: -0.375rem;
-  margin-left: 0.75rem;
-}
-
-.toast-body {
-  padding: 0.75rem;
-  word-wrap: break-word;
-}
 
 .modal {
   position: fixed;
