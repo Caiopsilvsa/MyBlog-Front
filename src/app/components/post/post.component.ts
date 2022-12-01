@@ -19,7 +19,7 @@ export class PostComponent implements OnInit {
   }
 
   loadPost(){
-    return this.postService.getPostByName(this.route.snapshot.paramMap.get('author')).subscribe(data => {
+    return this.postService.getPostByName(this.route.snapshot.paramMap.get('titulo')).subscribe(data => {
       this.post = data
     })
   }

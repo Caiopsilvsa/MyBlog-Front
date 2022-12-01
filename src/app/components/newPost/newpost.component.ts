@@ -33,7 +33,8 @@ export class ContactComponent implements OnInit {
     this.postService.CreatePost(this.postForm.value).subscribe(data =>{
       this.toast.success("Postagem criada com sucesso") 
       this.route.navigateByUrl('')
+    }, error =>{
+      this.toast.error("Já existe uma postagem com esse título")
     })
   }
-
 }

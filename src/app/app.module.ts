@@ -8,7 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { PostComponent } from './components/post/post.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
-import { ContactComponent } from './components/contact/newpost.component';
+import { ContactComponent } from './components/newPost/newpost.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';

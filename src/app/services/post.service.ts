@@ -27,11 +27,11 @@ export class PostService {
       )
   }
 
-  getPostByName(autor: string){
-      const post = this.posts.find(x => x.author === autor)
+  getPostByName(titulo: string){
+      const post = this.posts.find(x => x.titulo === titulo)
       if(post) return of(post)
 
-      return this.http.get<Post>(this.baseUrl + 'post/posts/' + autor)
+      return this.http.get<Post>(this.baseUrl + 'post/posts/' + titulo)
   }
 
   CreatePost(post: Post){
@@ -45,7 +45,14 @@ export class PostService {
   }
 
   UpdatePost(post :Post){
-    return this.http.put<Post>(this.baseUrl + 'post', post)
+    return this.http.put<Post>(this.baseUrl + 'post', post).pipe(
+      map(()=>{
+        console.log(post)
+        this.postChange = true
+        const index = this.posts.indexOf(post)
+        this.posts[index] = {...this.posts[index], ...post}
+      })
+    )
   }
 
   deletePost(titleName:string){
